@@ -1,0 +1,41 @@
+# Comenzi utile Docker
+
+1. **Rularea containerului:**
+   $docker run -p 8888:8888 teogiurgica/jupyter-notebook:latest
+   - Rularea unui container Docker și maparea porturilor (8888:8888) pentru a accesa Jupyter Notebook.
+
+2. **Vizualizarea containerelor care rulează:**
+   $docker ps
+   - Afișează containerele active și informații despre ele.
+
+3. **Vizualizarea tuturor containerelor (inclusiv cele oprite):**
+   $docker ps -a
+   - Afișează toate containerele, inclusiv cele care sunt oprite.
+
+4. **Oprirea unui container:**
+   $docker stop <container_id>
+   - Oprește un container care rulează.
+
+5. **Pornirea unui container oprit:**
+   $docker start <container_id>
+   - Pornește un container oprit.
+
+6. **Accesarea unui container în execuție:**
+   $docker exec -it <container_id> bash
+   - Deschide un terminal interactiv în interiorul unui container pentru a rula comenzi.
+
+7. **Ștergerea unui container oprit:**
+   $docker rm <container_id>
+   - Șterge un container care nu mai este necesar.
+
+8. **Ștergerea unei imagini Docker:**
+   $docker rmi <image_id>
+   - Șterge o imagine Docker care nu mai este necesară.
+
+9. **Vizualizarea utilizării resurselor Docker:**
+   $docker stats
+   - Afișează statistici în timp real despre utilizarea resurselor pentru fiecare container.
+
+10. **Reconstruirea unei imagini Docker după modificarea Dockerfile-ului:**
+    $docker build -t teogiurgica/jupyter-notebook:latest .
+    - Reconstruiește o imagine Docker pe baza fișierului Dockerfile din directorul curent.
