@@ -1,0 +1,132 @@
+# Crearea unui mediu Docker pe WSL pentru a transporta și rula cerințele pe orice mașină
+// Actualizează lista de pachete:
+$sudo apt update
+
+// Instalează Docker:
+$sudo apt install [docker.io](http://docker.io/)
+
+// Activează și rulează Docker:
+$sudo systemctl enable --now docker
+
+// Adaugă utilizatorul curent la grupul Docker pentru a evita folosirea sudo:
+$sudo usermod -aG docker $USER
+
+// Verifică dacă Docker este instalat corect:
+$docker --version
+
+// Permite lui Docker să ruleze fără sudo:
+$ sudo usermod -aG docker $USER
+
+
+
+
+# Crearea unui mediu Docker pentru Jupyter Notebook
+
+// Crearea unui director pentru proiect:
+$mkdir jupyter-docker
+$cd jupyter-docker
+
+// Crearea unui fișier Dockerfile în directorul curent:
+
+# Acesta conține instrucțiuni pentru crearea imaginii Docker
+
+FROM python:3.9
+
+WORKDIR /workspace
+
+// Instalăm Jupyter și librăriile necesare:
+RUN pip install --no-cache-dir jupyter pandas numpy matplotlib
+
+// Expunem portul 8888 pentru Jupyter:
+EXPOSE 8888
+
+// Lansează Jupyter Notebook la pornirea containerului:
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+
+
+
+
+
+# Construirea și rularea imaginii Docker
+
+// Construirea imaginii Docker:
+$docker build -t <your-dockerhub-username>/jupyter-notebook .
+
+// Rularea containerului:
+$docker run -p 8888:8888 jupyter-notebook
+
+// Accesarea Jupyter Notebook în browser la:
+[http://localhost:8888](http://localhost:8888/)
+
+
+
+
+
+# Urcarea imaginii Docker pe Docker Hub
+
+// Autentificare pe Docker Hub:
+$docker login
+
+// Etichetarea imaginii Docker:
+$docker tag jupyter-notebook <your-dockerhub-username>/jupyter-notebook:latest
+
+// Încărcarea imaginii Docker pe Docker Hub:
+$docker push <your-dockerhub-username>/jupyter-notebook:latest
+
+
+
+
+# Cum să trimiți caietul și mediul de dezvoltare altora
+
+// Modifică Dockerfile pentru a copia fișierele de pe Windows în WSL:
+COPY KDDTest.txt /workspace/
+COPY KDDTrain.txt /workspace/
+
+// Accesarea caietului Jupyter Notebook după rularea containerului:
+[http://localhost:8888](http://localhost:8888/)
+
+# Rularea mediului Docker pe Raspberry Pi
+
+// Pe Raspberry Pi, instalează Docker și rulează containerul:
+$docker pull <your-dockerhub-username>/jupyter-notebook:latest
+$docker run -p 8888:8888 <your-dockerhub-username>/jupyter-notebook:latest
+
+// Accesează caietul Jupyter pe Raspberry Pi la:
+http://<raspberry-pi-ip>:8888
+
+
+
+
+
+
+# Modificarea imaginii Docker după adăugarea de librării noi
+
+// Adăugarea librăriilor noi în Dockerfile:
+RUN pip install --no-cache-dir \
+seaborn \
+matplotlib \
+numpy
+
+// Reconstruirea imaginii Docker:
+$docker build -t <your-dockerhub-username>/jupyter-notebook:latest .
+
+// Împingerea imaginii pe Docker Hub:
+$docker push <your-dockerhub-username>/jupyter-notebook:latest
+
+
+
+
+
+# Crearea unui mediu virtual pe Debian(optional, extra)
+
+// Crearea unui mediu virtual:
+$python3 -m venv numele_mediiului
+
+// Activarea mediului virtual:
+$source myenv/bin/activate
+
+// Instalarea Jupyter în mediul virtual:
+$ pip install jupyter
+
+// Pornirea caietului Jupyter:
+$jupyter notebook
