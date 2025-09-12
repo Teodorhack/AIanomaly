@@ -1,41 +1,41 @@
-# Comenzi utile Docker
+# Useful Docker Commands
 
-1. **Rularea containerului:**
-   $docker run -p 8888:8888 teogiurgica/jupyter-notebook:latest
-   - Rularea unui container Docker și maparea porturilor (8888:8888) pentru a accesa Jupyter Notebook.
+1. **Running the container:**  
+   `$ docker run -p 8888:8888 teogiurgica/jupyter-notebook:latest`  
+   - Runs a Docker container and maps the ports (8888:8888) to access Jupyter Notebook.  
 
-2. **Vizualizarea containerelor care rulează:**
-   $docker ps
-   - Afișează containerele active și informații despre ele.
+2. **Viewing running containers:**  
+   `$ docker ps`  
+   - Displays the active containers and information about them.  
 
-3. **Vizualizarea tuturor containerelor (inclusiv cele oprite):**
-   $docker ps -a
-   - Afișează toate containerele, inclusiv cele care sunt oprite.
+3. **Viewing all containers (including stopped ones):**  
+   `$ docker ps -a`  
+   - Displays all containers, including those that are stopped.  
 
-4. **Oprirea unui container:**
-   $docker stop <container_id>
-   - Oprește un container care rulează.
+4. **Stopping a container:**  
+   `$ docker stop <container_id>`  
+   - Stops a running container.  
 
-5. **Pornirea unui container oprit:**
-   $docker start <container_id>
-   - Pornește un container oprit.
+5. **Starting a stopped container:**  
+   `$ docker start <container_id>`  
+   - Starts a stopped container.  
 
-6. **Accesarea unui container în execuție:**
-   $docker exec -it <container_id> bash
-   - Deschide un terminal interactiv în interiorul unui container pentru a rula comenzi.
+6. **Accessing a running container:**  
+   `$ docker exec -it <container_id> bash`  
+   - Opens an interactive terminal inside a container to run commands.  
 
-7. **Ștergerea unui container oprit:**
-   $docker rm <container_id>
-   - Șterge un container care nu mai este necesar.
+7. **Removing a stopped container:**  
+   `$ docker rm <container_id>`  
+   - Removes a container that is no longer needed.  
 
-8. **Ștergerea unei imagini Docker:**
-   $docker rmi <image_id>
-   - Șterge o imagine Docker care nu mai este necesară.
+8. **Removing a Docker image:**  
+   `$ docker rmi <image_id>`  
+   - Deletes a Docker image that is no longer needed.  
 
-9. **Vizualizarea utilizării resurselor Docker:**
-   $docker stats
-   - Afișează statistici în timp real despre utilizarea resurselor pentru fiecare container.
+9. **Viewing Docker resource usage:**  
+   `$ docker stats`  
+   - Displays real-time statistics about resource usage for each container.  
 
-10. **Reconstruirea unei imagini Docker după modificarea Dockerfile-ului:**
-    $docker build -t teogiurgica/jupyter-notebook:latest .
-    - Reconstruiește o imagine Docker pe baza fișierului Dockerfile din directorul curent.
+10. **Rebuilding a Docker image after modifying the Dockerfile:**  
+    `$ docker build -t teogiurgica/jupyter-notebook:latest .`  
+    - Rebuilds a Docker image based on the Dockerfile in the current directory.  
