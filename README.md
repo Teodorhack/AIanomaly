@@ -46,22 +46,13 @@ Then push the modified image to Docker Hub:
 $ docker push teogiurgica/jupyter-notebook:latest
 
 📚 Resources and References
-Charmed Kubeflow Docs
-
-Setup Prometheus Monitoring on Kubernetes
-
-Kubeflow Official Site
-
-Kubernetes Official Site
-
-Grafana Official Site
-
-MicroK8s Getting Started
-
-Raspberry Pi Cluster Tutorial
-
-Kubernetes Home Lab Setup
-
-Ubuntu Kubernetes on Raspberry Pi
-
-Charmed Kubeflow Docs
+(https://charmed-kubeflow.io/docs/get-started
+https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/
+https://www.kubeflow.org/
+https://kubernetes.io/
+https://grafana.com/ 
+https://microk8s.io/docs/getting-started
+https://www.raspberrypi.com/tutorials/cluster-raspberry-pi-tutorial/
+https://www.virtualizationhowto.com/2021/06/kubernetes-home-lab-setup-step-by-step/
+https://ubuntu.com/tutorials/how-to-kubernetes-cluster-on-raspberry-pi#1-overview
+https://charmed-kubeflow.io/docs/get-started
